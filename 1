@@ -1,0 +1,66 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resourceType": "Person",
+      "id": "1",
+      "name": [{ "text": "王小明" }],
+      "telecom": [
+        { "system": "email", "value": "ming@example.com" },
+        { "system": "phone", "value": "0912345678" }
+      ]
+    },
+    {
+      "resourceType": "Basic",
+      "id": "101",
+      "code": { "text": "餅乾" },
+      "extension": [
+        {
+          "url": "http://example.org/fhir/StructureDefinition/product-price",
+          "valueMoney": { "value": 50, "currency": "TWD" }
+        }
+      ]
+    },
+    {
+      "resourceType": "Basic",
+      "id": "102",
+      "code": { "text": "果汁" },
+      "extension": [
+        {
+          "url": "http://example.org/fhir/StructureDefinition/product-price",
+          "valueMoney": { "value": 30, "currency": "TWD" }
+        }
+      ]
+    },
+    {
+      "resourceType": "Task",
+      "id": "5001",
+      "status": "requested",
+      "for": { "reference": "Person/1" },
+      "authoredOn": "2025-09-21",
+      "input": [
+        {
+          "type": { "text": "Product" },
+          "valueReference": { "reference": "Basic/101" },
+          "extension": [
+            {
+              "url": "http://example.org/fhir/StructureDefinition/quantity",
+              "valueInteger": 2
+            }
+          ]
+        },
+        {
+          "type": { "text": "Product" },
+          "valueReference": { "reference": "Basic/102" },
+          "extension": [
+            {
+              "url": "http://example.org/fhir/StructureDefinition/quantity",
+              "valueInteger": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
